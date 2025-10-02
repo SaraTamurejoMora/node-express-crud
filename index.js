@@ -81,7 +81,6 @@ app.post("/books",(req,res)=>{
 
 //Creem un endpoint per modificar un llibre
 
-
 app.put("/books/:id", (req, res) => {
     const data = readData();
     const body = req.body;
