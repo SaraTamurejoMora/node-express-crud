@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <form id="register-form">
+        <h2>Register</h2>
+        <label for="register-username">Username:</label>
+        <input type="text" id="register-username" name="username" required>
+
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" name="password" required>
+
+        <label for="register-confirm-password">Password</label>
+        <input type="password" id="register-confirm-password" name="confirm-password" required>
+
+        <button type="submit">Register</button>
+        <span>&nbsp;</span>
+    </form>
+</body>
+<script>
+    const qs = el = document.querySelector(el);
+
+    const registerForm = qs('#register-form');
+    const registerSpan = qs ('#register-form span');
+    registerForm.addEventListener('submit', (event) => {
+        event.preventDeafault()
+
+        const username = qs('#register-form').value
+        const password = qs('#register-password').value
+        const confirmedPassword = qs('#register-confirmed-password').value
+
+        password != confirmedPassword ?? alert ('No coinciden las contraseñas')
+
+        fetch('/register',{
+            method: "POST",
+            headers: {"Content-Type": "application"},
+        });
+        body: JSON.stringify({username,password})
+        .then(res =>{
+            res.ok ? (registerSpan.innerText = 'Usuario registrado') : (registerSpan.innerText = 'Error al registrar el usuario, jiji')
+        })
+
+    })
+
+</script>
+
+</html>
