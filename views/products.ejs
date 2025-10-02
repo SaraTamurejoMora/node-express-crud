@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holii</title>
+</head>
+<body>
+    <header>
+        <h1>Gestión de productos para <%= user.name %>!</h1>
+        <h2><%- htmlMessage %></h2>
+    </header>
+    <main>
+        <section>
+            <h2>Lista de Productos</h2>
+            <ul class="productos-lista">
+                <% data.products.forEach(product => { %>
+                    <li class="product-item">
+                        <strong><%= product.name %></strong>
+                        <span>Categoria: <%= product.category %></span>
+                        <span>Preu: €<%= product.price %></span>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "name": "Los 7 hábitos de la gente altamente efectiva",
+            "author": "Stephen R. Covey",
+            "year": 1989
+        },
+        {
+            "id": 2,
+            "name": "Padre rico, padre pobre",
+            "author": "Robert Kiyosaki",
+            "year": 1997
+        }
+    ],
+    
+    "products": [
+        {
+            "id": 1,
+            "name": "Steamdeck",
+            "category": "Console",
+            "price": 800
+        },
+                {
+            "id": 2,
+            "name": "Switch 2",
+            "category": "Console",
+            "price": 500
+        },
+                {
+            "id": 3,
+            "name": "Stardew Valley Game",
+            "category": "Videogame",
+            "price": 12
+        },
+                {
+            "id": 4,
+            "name": "Unrailed Game",
+            "category": "Videogame",
+            "price": 3
+        },
+                {
+            "id": 5,
+            "name": "Hollow Knight",
+            "category": "Videogame",
+            "price": 1989
+        },
+                {
+            "id": 6,
+            "name": "Hollow Knight Silksong",
+            "category": "Videogame",
+            "price": 1989
+        }
+
+    ]
+}
