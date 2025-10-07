@@ -24,24 +24,24 @@
     </form>
 </body>
 <script>
-    const qs = el = document.querySelector(el);
+    const qs = el => document.querySelector(el);
 
     const registerForm = qs('#register-form');
     const registerSpan = qs ('#register-form span');
-    registerForm.addEventListener('submit', (event) => {
-        event.preventDeafault()
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDeafault()
 
         const username = qs('#register-form').value
         const password = qs('#register-password').value
         const confirmedPassword = qs('#register-confirmed-password').value
 
         password != confirmedPassword ?? alert ('No coinciden las contraseñas')
-
+        console.log('Holaaaaa')
         fetch('/register',{
             method: "POST",
             headers: {"Content-Type": "application"},
-        });
-        body: JSON.stringify({username,password})
+            body: JSON.stringify({username,password})
+        })
         .then(res =>{
             res.ok ? (registerSpan.innerText = 'Usuario registrado') : (registerSpan.innerText = 'Error al registrar el usuario, jiji')
         })
