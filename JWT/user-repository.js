@@ -22,7 +22,7 @@ export class UserRepository {
         const hashedPassword = await bcrypt.hash(password,SALT_ROUNDS)
 
         User.create ({
-            _id:id,
+            _id: id,
             username,
             password: hashedPassword
         }).save()

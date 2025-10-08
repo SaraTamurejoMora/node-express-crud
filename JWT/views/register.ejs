@@ -26,25 +26,34 @@
 <script>
     const qs = el => document.querySelector(el);
 
-    const registerForm = qs('#register-form');
-    const registerSpan = qs ('#register-form span');
-    registerForm.addEventListener('submit', (e) => {
-        e.preventDeafault()
+    const registerForm = qs("#register-form");
+    const registerSpan = qs("#register-form span");
 
-        const username = qs('#register-form').value
-        const password = qs('#register-password').value
-        const confirmedPassword = qs('#register-confirmed-password').value
+    registerForm.addEventListener("submit", (e) => {
+        e.preventDefault()
 
-        password != confirmedPassword ?? alert ('No coinciden las contraseñas')
-        console.log('Holaaaaa')
-        fetch('/register',{
+        const username = qs("#register-username").value
+        const password = qs("#register-password").value
+        const confirmPassword = qs("#register-confirm-password").value
+
+        if (password != confirmPassword) {
+            alert("Las contraseñas no coinciden! :/");
+            return;
+        }
+        fetch("/register", {
             method: "POST",
-            headers: {"Content-Type": "application"},
-            body: JSON.stringify({username,password})
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
         })
-        .then(res =>{
-            res.ok ? (registerSpan.innerText = 'Usuario registrado') : (registerSpan.innerText = 'Error al registrar el usuario, jiji')
-        })
+            .then((res) => {
+                if (res.ok) {
+                    registerSpan.innerText = "Usuario registrado";
+                    registerSpan.style.color = "green";
+                } else {
+                    registerSpan.innerText = "Error! El usuario no se ha podido registrar";
+                    registerSpan.style.color = "red";
+                }
+            });
 
     })
 
